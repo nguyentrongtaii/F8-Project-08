@@ -1,0 +1,120 @@
+.dropdown {
+  position: absolute;
+  left: 0;
+  width: min(1240px, 100%);
+  padding-top: 53px;
+  display: none;
+
+  &__inner {
+    --max-height-inner: min(582px, 100vh - 158px);
+    --padding-inner: 30px;
+    position: relative;
+    border-radius: 20px;
+    background: var(--dropdown-background);
+    box-shadow: 0px 40px 90px 20px var(--dropdown-box-shadow);
+    padding: var(--padding-inner);
+    max-height: var(--max-height-inner);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -9px;
+      left: var(--arrow-left-pos);
+      translate: -50%;
+      width: 23px;
+      height: 23px;
+      border-radius: 5px;
+      transform: rotate(45deg);
+      background: var(--dropdown-background);
+    }
+  }
+}
+.top {
+  &-menu {
+    position: relative;
+    // max-height: calc(min(582px, 100vh - 158px) - 60px);
+    max-height: calc(var(--max-height-inner) - var(--padding-inner) * 2);
+
+    &__top {
+      display: flex;
+      gap: 14px;
+    }
+
+    &__main {
+      --menu-width: 292px;
+      max-height: inherit;
+      width: var(--menu-width);
+      border-right: 1px solid var(--border-menu-right);
+      overflow-y: auto;
+
+      &--images {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+        position: relative;
+        flex-shrink: 0;
+      }
+
+      &--img:last-child {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        filter: var(--dropdown-menu-img);
+      }
+
+      &--img:first-child {
+        width: 30px;
+        height: 30px;
+      }
+
+      &--content {
+        flex: 1;
+        margin-top: 7px;
+      }
+    }
+  }
+  &__main {
+    &--heading {
+      color: var(--dropdown-menu-color);
+      font-size: 1.6rem;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    &--list {
+      margin-top: 19px;
+    }
+
+    &--item {
+      &:hover > .top__main--link {
+        color: var(--dropdown-menu-color-hover);
+      }
+      &:hover .sub-menu {
+        display: grid;
+      }
+    }
+    &--link {
+      color: var(--dropdown-menu-color);
+      font-size: 1.4rem;
+      font-weight: 400;
+      padding: 7px 0;
+      display: inline-block;
+    }
+  }
+}
+
+// sub-menu
+
+.sub-menu {
+  padding-left: var(--padding-inner);
+  position: absolute;
+  inset: 0 0 0 var(--menu-width);
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  overflow-y: auto;
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-inner);
+  }
+}

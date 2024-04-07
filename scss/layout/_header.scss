@@ -1,0 +1,159 @@
+@use "../abstracts";
+%flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+%flex-align-justify-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%flex-align-center-justify-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// header
+.header {
+  background: var(--header-bg);
+  &__top {
+    position: relative;
+    @extend %flex-align-center;
+    padding: 20px 0;
+    @include abstracts.breakpoint(md) {
+      justify-content: space-between;
+    }
+    @include abstracts.breakpoint(lg) {
+      padding: 10px 0;
+    }
+  }
+}
+
+.top {
+  &__nav {
+    margin-left: 129px;
+    @include abstracts.breakpoint(lg) {
+      display: none;
+    }
+    @include abstracts.breakpoint(xl) {
+      margin-left: 75px;
+    }
+    &--list {
+      @extend %flex-align-center;
+    }
+    &--item {
+      &:hover .dropdown {
+        display: block;
+      }
+    }
+    &--link {
+      display: flex;
+      color: var(--text-color);
+      font-size: 1.5rem;
+      font-weight: 500;
+      column-gap: 6px;
+      padding: 15px;
+    }
+
+    &--arrow {
+      padding-top: 2px;
+    }
+  }
+  &__logo {
+    &--images {
+      @include abstracts.breakpoint(lg) {
+        margin-left: 15px;
+      }
+      @include abstracts.breakpoint(md) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__act {
+    margin-left: auto;
+    @extend %flex-align-center;
+    column-gap: 20px;
+    @include abstracts.breakpoint(md) {
+      margin-left: 0;
+    }
+  }
+
+  &__search {
+    @extend %flex-align-justify-center;
+    padding: 13px;
+    border-radius: 8px;
+    background: var(--bg-button);
+    box-shadow: 0px 20px 60px 10px var(--box-shadow-top-nav-group);
+
+    @include abstracts.breakpoint(xl) {
+      display: none;
+    }
+  }
+
+  &__group {
+    @extend %flex-align-center;
+    border-radius: 8px;
+    background: var(--bg-button);
+    box-shadow: 0px 20px 60px 10px var(--box-shadow-top-nav-group);
+    @include abstracts.breakpoint(md) {
+      display: none;
+    }
+    &--love {
+      @extend %flex-align-center;
+    }
+
+    &--row {
+      @extend %flex-align-center;
+      column-gap: 10px;
+      padding: 13px 20px;
+      @include abstracts.breakpoint(lg) {
+        padding: 15px 15px;
+      }
+    }
+
+    &--img {
+      color: var(--text-color);
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    &--column {
+      width: 1px;
+      height: 30px;
+      background-color: #ededf6;
+    }
+
+    &--avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 14px 2px rgba(0, 0, 0, 0.08);
+      @include abstracts.breakpoint(lg) {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+      }
+    }
+
+    &--avt {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: inherit;
+    }
+    &--text {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+  }
+  &__more {
+    display: none;
+    @include abstracts.breakpoint(lg) {
+      display: block;
+    }
+  }
+}

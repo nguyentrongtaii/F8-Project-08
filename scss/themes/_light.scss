@@ -1,0 +1,18 @@
+html {
+  --media-bg: #eeeeee;
+  --block-bg: #eee;
+  --header-bg: #f6f6f6;
+  --text-color: #1a162e;
+  --icon-color: brightness(0) saturate(100%) invert(4%) sepia(59%)
+    saturate(2768%) hue-rotate(239deg) brightness(95%) contrast(90%);
+  --bg-button: #fff;
+  --box-shadow-top-nav-group: rgba(237, 237, 246, 0.2);
+  --dropdown-background: #fff;
+  --dropdown-box-shadow: rgba(200, 200, 200, 0.4);
+  // dropdown menu
+  --dropdown-menu-color: #1a162e;
+  --dropdown-menu-color-hover: #0071dc;
+
+  ///
+  --border-menu-right: #d2d1d6;
+}

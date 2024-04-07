@@ -1,0 +1,26 @@
+@use "../layout/header";
+@use "../abstracts";
+.top {
+      &__logo {
+            &--images {
+                  @extend %flex-align-center;
+                  column-gap: 14px;
+            }
+
+            &--brand {
+                  color: var(--text-color);
+                  font-size: 2.2rem;
+                  font-weight: 700;
+                  @include abstracts.breakpoint(lg) {
+                        font-size: 1.8rem;
+                  }
+            }
+            &--img {
+                  object-fit: cover;
+                  @include abstracts.breakpoint(lg) {
+                        width: 24px;
+                        height: 24px;
+                  }
+            }
+      }
+}

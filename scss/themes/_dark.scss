@@ -1,0 +1,25 @@
+.dark {
+  // media
+  --media-bg: #292e39;
+
+  --block-bg: #292e39;
+  --header-bg: #171c28;
+  --text-color: #fff;
+
+  // icon header
+  --icon-color: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)
+    hue-rotate(356deg) brightness(103%) contrast(102%);
+
+  --bg-button: #292e39;
+  --box-shadow-top-nav-group: rgba(0, 0, 0, 0.2);
+
+  // dropdown
+  --dropdown-color-text: #b9babe;
+  --dropdown-background: #292e39;
+  --dropdown-box-shadow: rgba(23, 28, 40, 0.4);
+  // dropdown menu
+  --dropdown-menu-color: #b9babe;
+  --dropdown-menu-color-hover: #0071dc;
+  --dropdown-menu-img: brightness(0) saturate(100%) invert(100%) sepia(1%)
+    saturate(2157%) hue-rotate(264deg) brightness(99%) contrast(99%);
+}
