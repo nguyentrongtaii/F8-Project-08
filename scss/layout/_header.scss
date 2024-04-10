@@ -35,18 +35,32 @@
 .top {
   &__nav {
     margin-left: 129px;
-    @include abstracts.breakpoint(lg) {
-      display: none;
-    }
     @include abstracts.breakpoint(xl) {
       margin-left: 75px;
     }
+    @include abstracts.breakpoint(lg) {
+      padding: 20px;
+      // display: none;
+      position: fixed;
+      inset: 0 50% 0 0;
+      background-color: rgb(132, 132, 114);
+      margin-left: 0px;
+    }
+
     &--list {
       @extend %flex-align-center;
+      @include abstracts.breakpoint(lg) {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 20px;
+      }
     }
     &--item {
       &:hover .dropdown {
         display: block;
+      }
+      @include abstracts.breakpoint(lg) {
+        width: 100%;
       }
     }
     &--link {
@@ -56,6 +70,9 @@
       font-weight: 500;
       column-gap: 6px;
       padding: 15px;
+      @include abstracts.breakpoint(lg) {
+        justify-content: space-between;
+      }
     }
 
     &--arrow {
