@@ -1279,18 +1279,34 @@ html {
 .top__nav {
   margin-left: 129px;
 }
-@media (max-width: 991.98px) {
-  .top__nav {
-    display: none;
-  }
-}
 @media (max-width: 1199.98px) {
   .top__nav {
     margin-left: 75px;
   }
 }
+@media (max-width: 991.98px) {
+  .top__nav {
+    padding: 20px;
+    position: fixed;
+    inset: 0 50% 0 0;
+    background-color: rgb(132, 132, 114);
+    margin-left: 0px;
+  }
+}
+@media (max-width: 991.98px) {
+  .top__nav--list {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+}
 .top__nav--item:hover .dropdown {
   display: block;
+}
+@media (max-width: 991.98px) {
+  .top__nav--item {
+    width: 100%;
+  }
 }
 .top__nav--link {
   display: flex;
@@ -1299,6 +1315,11 @@ html {
   font-weight: 500;
   column-gap: 6px;
   padding: 15px;
+}
+@media (max-width: 991.98px) {
+  .top__nav--link {
+    justify-content: space-between;
+  }
 }
 .top__nav--arrow {
   padding-top: 2px;
@@ -1425,6 +1446,9 @@ html {
   display: none;
 }
 .dropdown__inner {
+  --max-height-padding-inner: calc(
+    var(--max-height-inner) - var(--padding-inner) * 2
+  );
   --max-height-inner: min(582px, 100vh - 158px);
   --padding-inner: 30px;
   position: relative;
@@ -1436,6 +1460,7 @@ html {
 }
 .dropdown__inner::before {
   content: "";
+  z-index: -1;
   position: absolute;
   top: -9px;
   left: var(--arrow-left-pos);
@@ -1449,7 +1474,7 @@ html {
 
 .top-menu {
   position: relative;
-  max-height: calc(var(--max-height-inner) - var(--padding-inner) * 2);
+  max-height: var(--max-height-padding-inner);
 }
 .top-menu__top {
   display: flex;
@@ -1468,6 +1493,11 @@ html {
   object-fit: contain;
   position: relative;
   flex-shrink: 0;
+}
+@media (max-width: 1199.98px) {
+  .top-menu__main--images {
+    display: none;
+  }
 }
 .top-menu__main--img:last-child {
   position: absolute;
@@ -1492,10 +1522,10 @@ html {
 .top__main--list {
   margin-top: 19px;
 }
-.top__main--item:hover > .top__main--link {
+.top__main--item--active > .top__main--link, .top__main--item:hover > .top__main--link {
   color: var(--dropdown-menu-color-hover);
 }
-.top__main--item:hover .sub-menu {
+.top__main--item--active .sub-menu {
   display: grid;
 }
 .top__main--link {
@@ -1513,6 +1543,14 @@ html {
   display: none;
   grid-template-columns: repeat(3, 1fr);
   overflow-y: auto;
+}
+.sub-menu--not-main {
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: initial;
+  inset: initial;
+  max-height: var(--max-height-padding-inner);
 }
 .sub-menu__column {
   display: flex;
