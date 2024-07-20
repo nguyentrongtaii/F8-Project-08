@@ -1,51 +1,95 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- LINK FAVICON  -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/assets/favicon/favicon-16x16.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/assets/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/assets/favicon/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#ffffff" />
+<html lang="en" class="">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <!-- LINK FAVICON  -->
+      <link
+         rel="apple-touch-icon"
+         sizes="180x180"
+         href="/assets/favicon/favicon-16x16.png"
+      />
+      <link
+         rel="icon"
+         type="image/png"
+         sizes="32x32"
+         href="/assets/favicon/favicon-32x32.png"
+      />
+      <link
+         rel="icon"
+         type="image/png"
+         sizes="16x16"
+         href="/assets/favicon/favicon-16x16.png"
+      />
+      <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+      <meta name="msapplication-TileColor" content="#da532c" />
 
-    <!-- FONT  -->
-    <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+      <meta name="theme-color" content="#ffffff" />
 
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <!-- Scripts-->
-    <script src="./assets/js/scripts.js"></script>
-    <title>Grocerymart</title>
-  </head>
-  <body>
-    <!-- Header  -->
-    <header id="header" class="header"></header>
-    <script>
-      load("#header", "./templates/header.html");
-    </script>
-    <!-- Main  -->
-    <main class="main" style="height: 5000px"></main>
-    <!-- Footer  -->
-    <footer id="footer"></footer>
-    <script>
-      load("#footer", "./templates/footer.html");
-    </script>
-  </body>
+      <!-- FONT  -->
+
+      <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+
+      <!-- MAIN CSS -->
+      <link rel="stylesheet" href="./assets/css/main.css" />
+      <!-- Scripts-->
+      <script src="./assets/js/scripts.js"></script>
+      <title>Grocerymart</title>
+   </head>
+   <body>
+      <!-- Header  -->
+      <header id="header" class="header"></header>
+      <script>
+         load("#header", "./templates/header.html");
+      </script>
+      <!-- Main  -->
+      <main class="main" style="height: 2000px">
+         <div class="container home">
+            <!-- slideshow -->
+            <section class="home__container">
+               <div class="slideshow">
+                  <div class="slideshow__inner">
+                     <div class="slideshow__item">
+                        <a href="#!" class="slideshow__link">
+                           <picture>
+                              <source
+                                 media="(max-width: 767.98px) "
+                                 srcset="../assets/img/slideshow/item-1-md.png"
+                              />
+
+                              <img
+                                 src="./assets/img/slideshow/item-1.png"
+                                 alt="slideshow"
+                                 class="slideshow__img"
+                              />
+                           </picture>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="slideshow__page">
+                     <span class="slideshow__number">1</span>
+                     <span class="slideshow__row"></span>
+                     <span class="slideshow__number">5</span>
+                  </div>
+               </div>
+            </section>
+
+            <!-- categories  -->
+            <section class="home__container">
+               
+            </section>
+            <!-- categories  -->
+            <section class="home__container">
+               
+            </section>
+         </div>
+      </main>
+
+      <!-- Footer  -->
+
+      <footer id="footer"></footer>
+      <script>
+         load("#footer", "./templates/footer.html");
+      </script>
+   </body>
 </html>

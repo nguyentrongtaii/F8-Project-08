@@ -1,138 +1,190 @@
 @use "../abstracts";
 .dropdown {
-  position: absolute;
-  left: 0;
-  width: min(1240px, 100%);
-  padding-top: 53px;
-  display: none;
+   position: absolute;
+   left: 0;
+   width: min(1240px, 100%);
+   padding-top: 53px;
+   display: none;
+   // doi lai
+   @include abstracts.screen(lg) {
+      position: initial;
+      padding-top: 0;
+   }
 
-  &__inner {
-    --max-height-padding-inner: calc(
-      var(--max-height-inner) - var(--padding-inner) * 2
-    );
-    --max-height-inner: min(582px, 100vh - 158px);
-    --padding-inner: 30px;
-    position: relative;
-    border-radius: 20px;
-    background: var(--dropdown-background);
-    box-shadow: 0px 40px 90px 20px var(--dropdown-box-shadow);
-    padding: var(--padding-inner);
-    max-height: var(--max-height-inner);
+   &__inner {
+      --max-height-padding-inner: calc(
+         var(--max-height-inner) - var(--padding-inner) * 2
+      );
+      // --max-height-inner: min(582px, 100vh - 158px);
 
-    &::before {
-      content: "";
-      z-index: -1;
-      position: absolute;
-      top: -9px;
-      left: var(--arrow-left-pos);
-      translate: -50%;
-      width: 23px;
-      height: 23px;
-      border-radius: 5px;
-      transform: rotate(45deg);
+      --padding-inner: 30px;
+      position: relative;
+      border-radius: 20px;
       background: var(--dropdown-background);
-    }
-  }
+      box-shadow: 0px 40px 90px 20px var(--dropdown-box-shadow);
+      padding: var(--padding-inner);
+      height: var(--max-height-inner);
+      @include abstracts.screen(lg) {
+         padding: 0 40px;
+      }
+      @include abstracts.screen(lg) {
+         padding: 0 20px;
+      }
+
+      &::before {
+         content: "";
+         z-index: -1;
+         position: absolute;
+         top: -9px;
+         left: var(--arrow-left-pos);
+         translate: -50%;
+         width: 23px;
+         height: 23px;
+         border-radius: 5px;
+         transform: rotate(45deg);
+         background: var(--dropdown-background);
+      }
+
+      @include abstracts.screen(lg) {
+         border-radius: 0 20px 20px 0;
+         background-color: transparent;
+         box-shadow: none;
+         &::before {
+            content: none;
+         }
+      }
+   }
 }
+
 .top {
-  &-menu {
-    position: relative;
-    // max-height: calc(min(582px, 100vh - 158px) - 60px);
-    // max-height: calc(var(--max-height-inner) - var(--padding-inner) * 2);
-    max-height: var(--max-height-padding-inner);
-    &__top {
-      display: flex;
-      gap: 14px;
-    }
+   &-menu {
+      position: relative;
+      --max-height: calc(min(582px, 100vh - 158px) - 60px);
+      --max-height: calc(var(--max-height-inner) - var(--padding-inner) * 2);
+      max-height: var(--max-height-padding-inner);
 
-    &__main {
-      --menu-width: 292px;
-      max-height: inherit;
-      width: var(--menu-width);
-      border-right: 1px solid var(--border-menu-right);
-      overflow-y: auto;
-
-      &--images {
-        width: 36px;
-        height: 36px;
-        object-fit: contain;
-        position: relative;
-        flex-shrink: 0;
-        @include abstracts.breakpoint(xl) {
-          display: none;
-        }
+      &__top {
+         display: flex;
+         gap: 14px;
       }
 
-      &--img:last-child {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        filter: var(--dropdown-menu-img);
+      &__main {
+         --menu-width: 292px;
+         height: var(--max-height-padding-inner);
+         width: var(--menu-width);
+         border-right: 1px solid var(--border-menu-right);
+         overflow-y: auto;
+         @include abstracts.screen(lg) {
+            width: 100%;
+            border-right: none;
+            height: auto;
+         }
+
+         &--images {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            position: relative;
+            flex-shrink: 0;
+            @include abstracts.screen(xl) {
+               display: none;
+            }
+            @include abstracts.screen(lg) {
+               display: block;
+            }
+         }
+
+         &--img:last-child {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            filter: var(--dropdown-menu-img);
+         }
+
+         &--img:first-child {
+            width: 30px;
+            height: 30px;
+         }
+
+         &--content {
+            flex: 1;
+            margin-top: 7px;
+            @include abstracts.screen(lg) {
+               margin-top: 0;
+            }
+         }
+      }
+   }
+
+   &__main {
+      &--heading {
+         color: var(--dropdown-menu-color);
+         font-size: 1.6rem;
+         font-style: normal;
+         font-weight: 500;
       }
 
-      &--img:first-child {
-        width: 30px;
-        height: 30px;
+      &--list {
+         margin-top: 19px;
+      }
+      &--item--active > &--link,
+      &--item:hover > &--link {
+         color: var(--dropdown-menu-color-hover);
       }
 
-      &--content {
-        flex: 1;
-        margin-top: 7px;
+      &--item {
+         &--active .sub-menu {
+            display: grid;
+            @include abstracts.screen(lg) {
+               margin-top: 14px;
+               padding-left: 0;
+            }
+         }
       }
-    }
-  }
-  &__main {
-    &--heading {
-      color: var(--dropdown-menu-color);
-      font-size: 1.6rem;
-      font-style: normal;
-      font-weight: 500;
-    }
 
-    &--list {
-      margin-top: 19px;
-    }
-    &--item--active > &--link,
-    &--item:hover > &--link {
-      color: var(--dropdown-menu-color-hover);
-    }
-    &--item {
-      &--active .sub-menu {
-        display: grid;
+      &--link {
+         color: var(--dropdown-menu-color);
+         font-size: 1.4rem;
+         font-weight: 400;
+         padding: 7px 0;
+         display: inline-block;
       }
-    }
-    &--link {
-      color: var(--dropdown-menu-color);
-      font-size: 1.4rem;
-      font-weight: 400;
-      padding: 7px 0;
-      display: inline-block;
-    }
-  }
+   }
 }
 
 // sub-menu
 
 .sub-menu {
-  padding-left: var(--padding-inner);
-  position: absolute;
-  inset: 0 0 0 var(--menu-width);
-  display: none;
-  // display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  overflow-y: auto;
-  &--not-main {
-    padding-left: 0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    position: initial;
-    inset: initial;
-    max-height: var(--max-height-padding-inner);
-  }
-  &__column {
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-inner);
-  }
+   padding-left: var(--padding-inner);
+   position: absolute;
+   inset: 0 0 0 var(--menu-width);
+   display: none;
+   // display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   overflow-y: auto;
+   @include abstracts.screen(lg) {
+      position: initial;
+      grid-template-columns: 1fr;
+      height: auto;
+   }
+
+   &--not-main {
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      position: initial;
+      inset: initial;
+      height: var(--max-height-padding-inner);
+      @include abstracts.screen(lg) {
+         grid-template-columns: 1fr;
+         height: auto;
+      }
+   }
+
+   &__column {
+      display: flex;
+      flex-direction: column;
+      gap: var(--padding-inner);
+   }
 }
 // sub menu not main
